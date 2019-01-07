@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reformer.wt_census.dao.IUserDao">
+
+    <insert id="addUsers" parameterType="User">
+        insert into meng_user(username,u_time) values(#{username},#{u_time})
+    </insert>
+
+    <select id="userList" resultType="User">
+        select * from meng_user
+    </select>
+
+</mapper>

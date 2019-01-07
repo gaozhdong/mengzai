@@ -1,0 +1,76 @@
+server:
+  port: 80
+  max-http-header-size: 10000
+  tomcat.uri-encoding: UTF-8
+
+
+spring:
+  http:
+      multipart:
+      enabled: true
+      location: /home/earthchen/study/spring/SpringBootProjects/search-house/tmp
+      file-size-threshold: 5MB
+      max-request-size: 20MB
+      encoding:
+            charset: UTF-8
+            force: true
+            enabled: true
+
+
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://118.24.199.165:3306/meng?characterEncoding=UTF-8
+    username: meng
+    password: gaozhidongyangmeng18
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+
+
+  mvc:
+   view:
+    prefix: /WEB-INF/jsp/
+    suffix: .jsp
+    throw-exception-if-no-handler-found: true
+
+
+  thymeleaf:
+    cache: false
+    enabled: false
+  aop:
+    auto: true
+    proxy-target-class: true
+  servlet:
+    multipart:
+      max-file-size: 100Mb
+      max-request-size: 100Mb
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.reformer.wt_census.model
+
+logging:
+  level:
+    cn.luischen.dao : DEBUG
+    com:
+      dy:
+        springboot:
+          server:
+            mapper: debug
+
+
+
